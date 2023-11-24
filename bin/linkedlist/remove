@@ -1,0 +1,50 @@
+    //--------------------------------------------------remove first---------------------------------------------------------------------------------
+    public void removefirst() {
+        if (head == null) {
+            System.out.println("LL is empty");
+            return;
+        } else if (head == tail) {
+            head = tail = null;
+            size--;
+            return;
+        }
+        head = head.next;
+        size--;
+    }
+//--------------------------------------------------remove last---------------------------------------------------------------------------------
+    public void removelast() {
+        if (head == null) {
+            System.out.println("LL is empty");
+            return;
+        } else if (head == tail) {
+            head = tail = null;
+            size--;
+            return;
+        }
+        size--;
+        Node temp = head;
+        while (((temp.next).next) != null) {
+            temp = temp.next;
+        }
+        // now list is at last but 1
+        temp.next = null;
+        tail = temp;
+        return;
+    }
+   //--------------------------------------------------remove nth from last or indexed----------------------------------------------------------------------------
+     //deleting nth from last or size-n from starting
+     public void removeNth(int n){
+        size=0;
+        size();
+        int st=size-n;
+        Node temp=head;
+        int i=0;
+        while(i<st-1){
+            temp=temp.next;
+            i++;
+        }
+        Node temp2=(temp.next).next;
+        temp.next=temp2;
+
+       
+    }

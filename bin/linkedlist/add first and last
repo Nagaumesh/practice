@@ -1,0 +1,49 @@
+ // --------------------------------------------------------------add first--------------------------------------------------------------------
+ public void addfirst(int data) { // no need of static because we use ll.addirst in main
+        // step-1 create a node
+        Node newNode = new Node(data);
+        size++;
+        if (head == null) { // no list till now
+            head = tail = newNode;
+            return;
+        }
+        // step-2 assign head to next of newnode
+        newNode.next = head;
+        // step-3 assign new node as head
+        head = newNode;
+    }
+
+
+// --------------------------------------------------------------add last-------------------------------------------------------------------------------------------------------------------
+    public void addlast(int data) {
+        // step-1 create a node
+        Node newNode = new Node(data);
+        size++;
+        if (head == null) { // no list till now (empty list)
+            head = tail = newNode;
+            return;
+        }
+        // step-2 assign tail.next=newnode
+        tail.next = newNode;
+        // step-3 assign tail=newnode
+        tail = newNode;
+    }
+//---------------------------------------------------------------- add at index------------------------------------------------------------------
+    public void add(int index, int data) {
+        if (index == 0) {
+            addfirst(data);
+            return;
+        }
+        int i = 0;
+        size++;
+        Node newNode = new Node(data);
+        Node temp = head;
+        while (i < index - 1) {
+            temp = temp.next;
+            i++;
+        }
+        // come until prev and perform operations
+        // i=idx-1 temp->prev is stored
+        newNode.next = temp.next;
+        temp.next = newNode;
+    }

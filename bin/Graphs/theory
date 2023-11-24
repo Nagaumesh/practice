@@ -1,0 +1,11 @@
+1.graphs(google maps)have edges
+types ofedges-uni directional (can travel only one way)or un-directional/bi directional(can travel bothways)
+2.Edges can have weights(kms,distance)
+3. weights can also be negative
+
+graphs are stored in 4 ways
+
+1.Adjacency List (list of lists)
+2.Adjacency matrix
+3.Edge List
+4. 2D matrix(Implicit graph) 

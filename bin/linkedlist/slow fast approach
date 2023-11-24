@@ -1,0 +1,9 @@
+ public Node midnode(){
+        Node slow=head;
+        Node fast=head;
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;// --tortoise
+            fast=fast.next.next;//---Rabbit
+        }
+        return slow;
+    }

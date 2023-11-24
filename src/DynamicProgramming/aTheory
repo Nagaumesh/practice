@@ -1,0 +1,5 @@
+// dynamic programming is simple optimized code where we dont perform a single operation multiple times 
+// so we perform operation once and store it for the next operation and used when needed
+there are 2 ways of DynamicProgramming
+1.memoziation(we use this maximum as easier compared to tabulation)
+2.Tabulation
