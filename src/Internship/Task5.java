@@ -1,4 +1,3 @@
-package Internship;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -31,11 +30,11 @@ class Student {
     }
 }
 
-public class Task5 {
+public class CourseRegistrationSystem {
     List<Course> courses;
     List<Student> students;
 
-    public Task5() {
+    public CourseRegistrationSystem() {
         this.courses = new ArrayList<>();
         this.students = new ArrayList<>();
     }
@@ -75,7 +74,6 @@ public class Task5 {
     }
 
     public void displayAvailableCourses() {
-        System.out.println("------------------------------------------");
         System.out.println("Available Courses:");
         for (Course course : courses) {
             System.out.println("Code: " + course.code);
@@ -83,30 +81,58 @@ public class Task5 {
             System.out.println("Description: " + course.description);
             System.out.println("Capacity: " + course.capacity + " slots available out of " + course.capacity);
             System.out.println("Schedule: " + course.schedule);
-            System.out.println("--------------------------------------");
+            System.out.println("------------------------------");
         }
     }
 
     public static void main(String[] args) {
-        Task5 registrationSystem = new Task5();
+        CourseRegistrationSystem registrationSystem = new CourseRegistrationSystem();
         // Adding sample courses
-        Course computers = new Course("CS001", "Introduction to Computer Science", "Basic concepts of programming", 30, "Mon/Wed/Fri 9-11 AM");
-        Course math = new Course("MATH001", "Calculus", "Fundamental principles of calculus", 25, "Tue/Thu 1-3 PM");
-        registrationSystem.addCourse(computers);
-        registrationSystem.addCourse(math);
+        Course course1 = new Course("CS001", "Introduction to Computer Science", "Basic concepts of programming", 30, "Mon/Wed/Fri 9-11 AM");
+        Course course2 = new Course("MATH001", "Calculus", "Fundamental principles of calculus", 25, "Tue/Thu 1-3 PM");
+        registrationSystem.addCourse(course1);
+        registrationSystem.addCourse(course2);
 
-        // Sample student registration
-        Student student1 = new Student("S001", "Nagaumesh");
-        Student student2 = new Student("S002", "Saketha");
+        Scanner scanner = new Scanner(System.in);
+        boolean running = true;
 
-        registrationSystem.registerStudent(student1, "CS001");
-        registrationSystem.registerStudent(student1, "MATH001");
-        registrationSystem.registerStudent(student2, "CS001");
+        while (running) {
+            System.out.println("\nChoose an option:");
+            System.out.println("1. Register for a course");
+            System.out.println("2. Drop a course");
+            System.out.println("3. Display available courses");
+            System.out.println("4. Exit");
 
-        // Display available courses
-        registrationSystem.displayAvailableCourses();
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
 
-        // Sample student removing course
-        registrationSystem.removeCourse(student1, "MATH001");
+            switch (choice) {
+                case 1:
+                    System.out.println("Enter student ID:");
+                    String studentID = scanner.nextLine();
+                    System.out.println("Enter course code to register:");
+                    String registerCode = scanner.nextLine();
+                    Student registerStudent = new Student(studentID, "");
+                    registrationSystem.registerStudent(registerStudent, registerCode);
+                    break;
+                case 2:
+                    System.out.println("Enter student ID:");
+                    String dropStudentID = scanner.nextLine();
+                    System.out.println("Enter course code to drop:");
+                    String dropCode = scanner.nextLine();
+                    Student dropStudent = new Student(dropStudentID, "");
+                    registrationSystem.removeCourse(dropStudent, dropCode);
+                    break;
+                case 3:
+                    registrationSystem.displayAvailableCourses();
+                    break;
+                case 4:
+                    running = false;
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please enter a valid option.");
+                    break;
+            }
+        }
+        scanner.close();
     }
-}

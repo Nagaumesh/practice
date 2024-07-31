@@ -70,6 +70,7 @@ public class doubleLL {
         ll.reverse();
         ll.print();
         System.out.println("size: "+size);
+        Scanner sc= new Scanner(System.in);
     }
     
 }

@@ -1,11 +1,9 @@
 package TREE;
 
-import java.lang.reflect.Constructor;
 import java.util.*;
 
 public class buildtreePreorder {
-    public static class Node {
-        public static final String is = null;
+    public static class Node{
         public int data;
         public Node left;
         public Node right;
@@ -117,7 +115,7 @@ public class buildtreePreorder {
         // diameter of tree is the longest distance b/w any 2 nodes
         public int diameter2(Node root){
             if(root==null){
-                return 0;
+                return 0 ;
             }
             int ldia=diameter2(root.left);
             int rdia=diameter2(root.right);

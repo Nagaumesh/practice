@@ -1,3 +1,4 @@
+
 package GreedyApproach;
 
 import java.util.*;
@@ -9,28 +10,28 @@ public class JobSequencing {
     // job is done before deadline
     public static void main(String[] args) {
         // for second
-        int[][] job = { { 2, 20 }, { 1, 10 },{ 2, 40 }, { 1, 30 } };
-        Arrays.sort(job, Comparator.comparingDouble(o -> o[0]));
+        int[][] job = { { 2, 20 }, { 1, 30 },{ 2, 40 }, { 1, 10 } };
+        Arrays.sort(job, Comparator.comparingInt(i -> i[0]));
         // System.out.println(job.length);
 
-        // for(int i=0;i<job.length;i++){
-        // System.out.println("("+job[i][0]+","+job[i][1]+")");
-        // }
-
-        int i = 0;
-        int totalcost = 0;
-        while (i < job.length) {
-            int curr = job[i][0];
-            int maxcost = job[i][1];
-            i++;
-            while ( i < job.length  && curr == job[i][0]) {
-                maxcost = Math.max(maxcost, job[i][1]);
-                i++;
-            }
-            totalcost = totalcost + maxcost;
-
+        for(int i=0;i<job.length;i++){
+        System.out.println("("+job[i][0]+","+job[i][1]+")");
         }
-        System.out.println("Total cost:" + totalcost);
+
+        // int i = 0;
+        // int totalcost = 0;
+        // while (i < job.length) {
+        //     int curr = job[i][0];
+        //     int maxcost = job[i][1];
+        //     i++;
+        //     while ( i < job.length  && curr == job[i][0]) {
+        //         maxcost = Math.max(maxcost, job[i][1]);
+        //         i++;
+        //     }
+        //     totalcost = totalcost + maxcost;
+
+        // }
+        // System.out.println("Total cost:" + totalcost);
     }
 
 }

@@ -12,6 +12,7 @@ public class basics {
         hs.add(3);
         hs.add(1);
         hs.add(3);
+        System.out.println(hs);
         // hs.remove(2);
         // System.out.println(hs);
         // System.out.println(hs.contains(3));
@@ -23,9 +24,9 @@ public class basics {
         //     System.out.println(i.next()); 
         // }
         // 2nd stepusing for each loop
-        for(int it: hs){
-            System.out.println(it);
-        }
+        // for(int it: hs){
+        //     System.out.println(it);
+        // }
 
     }
 }

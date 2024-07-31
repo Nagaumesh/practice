@@ -6,6 +6,7 @@ public class basic {
       for(char ch='a';ch<='z';ch++){
           sb.append(ch);
       }
+      boolean boo=true;
       System.out.println(sb);
       System.out.println(sb.length());
     }

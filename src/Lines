@@ -1,0 +1,39 @@
+import java.util.PriorityQueue;
+
+class Solution {
+    public int minDays(int[] bloomDay, int m, int k) {
+        int n=bloomDay.length;
+        if(m*k>n){
+            return -1;
+        }
+        PriorityQueue<Integer> pq=new PriorityQueue<>();
+        for(int i=0;i<n;i++){
+           if(! pq.contains(bloomDay[i])){
+                pq.add(bloomDay[i]);
+           }
+        }
+        
+        int ans=0;
+        while(true){
+            int mindays=pq.remove()-ans;
+            ans=ans+mindays;
+            int conseq=0;
+            for(int i=0;i<n;i++){
+                bloomDay[i]=bloomDay[i]-mindays;
+                if(bloomDay[i]==0){
+                    conseq++;
+                }else{
+                    conseq=0;
+                }
+                if(conseq==k){
+                    m--;
+                    conseq=0;
+                    if(m==0){
+                        return ans;
+                    }
+                }
+            }
+        }
+    }
+
+}

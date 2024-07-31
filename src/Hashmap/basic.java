@@ -11,7 +11,7 @@ public class basic {
         System.out.println(clg.get("cootie"));
         System.out.println(clg.containsKey("umesh")); // returns boolean
         System.out.println(clg);
-        hm.conta
         //returns value of the key
+        Set
     }
 }
